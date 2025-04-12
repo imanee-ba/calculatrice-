@@ -177,18 +177,19 @@ class calculatrice extends JFrame{
 		
 		JMenuBar barre=new JMenuBar();
 		setJMenuBar(barre);
-		JMenu base , sc;
-		base=new JMenu("Base");
-		sc=new JMenu("Scientifique");
-		sc.setActionCommand("sc");
-		barre.add(base);
-		barre.add(sc);
-	JMenuItem binaire,octal,hexa;
-	binaire=new JMenuItem("Binaire"); base.add(binaire);
+		JMenu mode ;
+		mode=new JMenu("Mode");
+		
+		
+		barre.add(mode);
+	JMenuItem binaire,octal,hexa,scientifique;
+	scientifique=new JMenuItem("scientifique");mode.add(scientifique);
 	
-	octal=new JMenuItem("Octal"); base.add(octal);
+	binaire=new JMenuItem("Binaire"); mode.add(binaire);
+	
+	octal=new JMenuItem("Octal"); mode.add(octal);
 	octal.setActionCommand("octal");
-	hexa=new JMenuItem("Hexadecimale");base.add(hexa);
+	hexa=new JMenuItem("Hexadecimale");mode.add(hexa);
 	hexa.setActionCommand("hexa");
 	
 	
@@ -835,16 +836,17 @@ class calculatrice extends JFrame{
 			 
 		 });
 	 
-	 sc.addActionListener(new ActionListener() {
+	 scientifique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(e.getActionCommand().equals("sc")){
+				if(e.getActionCommand().equals("scientifique")){
 					int nb = 0;
 					JLabel lab=new JLabel("");
 					JFrame n=new JFrame("calcul Scientifique");
 					JPanel pn=new JPanel();
 					pn.setBackground(Color.PINK);
 					pn.setLayout(new GridLayout(4,3));
-					
+					n.setVisible(true);			
+					dispose();
 					
 					 n.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 					 n.setSize(500,500);
